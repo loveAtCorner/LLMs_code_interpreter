@@ -1,0 +1,5 @@
+这个脚本的核心功能是定义了一系列的Python类，这些类主要用于描述和处理与聊天机器人交互相关的数据结构。这些数据结构涵盖了模型卡片（ModelCard）、模型列表（ModelList）、函数（Function）、函数定义（FunctionDefinition）、函数可用性（FunctionAvailable）、函数调用（FunctionCall）、多媒体输入项（MultimodalInputItem）、聊天消息（ChatMessage）、聊天完成消息（ChatCompletionMessage）、聊天完成请求（ChatCompletionRequest）、聊天完成响应选择（ChatCompletionResponseChoice）、聊天完成响应（ChatCompletionResponse）、聊天完成流响应选择（ChatCompletionStreamResponseChoice）、聊天完成流响应（ChatCompletionStreamResponse）、评分评估请求（ScoreEvaluationRequest）和评分评估响应（ScoreEvaluationResponse）。
+
+这些类定义了不同类型的数据，如用户和机器人的交互消息、模型的元数据、函数调用的参数和结果、以及用于评估模型性能的评分请求和响应。这些数据结构可以用于构建一个复杂的聊天机器人系统，支持多模态输入（文本和图片）、工具调用、模型选择、文本生成的参数控制（如温度、top_p等）以及模型性能的评分和评估。
+
+虽然这个脚本本身并不直接执行大语言模型的指令精调任务，但它提供了一个结构化的框架，可以用来构建一个支持精调任务的系统。例如，`ChatCompletionRequest`可以用来指定精调时的输入数据（消息历史和工具调用），而`ScoreEvaluationRequest`可以用来定义精调后的模型性能评估标准。因此，这个脚本是构建一个支持精调任务的聊天机器人平台的基础设施的一部分。

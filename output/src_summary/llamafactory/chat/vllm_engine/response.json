@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-fe2d041072684e54821d0fec717dccf9",
+    "object": "chat.completion",
+    "created": 1720772425,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "这个脚本的核心功能是实现了一个基于VLLM（Very Large Language Model）的异步引擎（VllmEngine），用于与VLLM模型进行交互，执行对话生成任务。VllmEngine继承自BaseEngine，它支持文本生成、多轮对话（chat）以及流式对话（stream_chat）等功能。此外，它还支持LoRA（Latent Optimized Recurrent Attention）技术，以增强模型的性能。\n\nVllmEngine在初始化时，会根据提供的模型参数加载配置文件、预训练模型和分词器。它会根据配置调整模型参数，如量化方法和数据类型。根据模型是否包含视觉输入，VllmEngine会设置相应的图像输入参数。然后，它会创建一个AsyncLLMEngine实例，用于与VLLM模型通信。\n\nVllmEngine的聊天（chat）和流式聊天（stream_chat）方法负责处理用户输入的消息，将其转换为模型所需的格式，然后调用模型生成响应。生成的响应被封装为Response对象并返回。此外，该脚本还包含一个未实现的get_scores方法，这表明VllmEngine不支持获取模型对输入序列的分数。\n\n这个脚本的功能与大语言模型的指令精调任务相关，因为它涉及到了与预训练模型的交互，以及根据特定参数（如温度、top_p等）生成文本，这些参数通常用于微调模型以适应特定任务或风格。然而，这个脚本本身并不直接执行精调过程，它只是一个用于与精调后的模型进行交互的接口。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 2223,
+        "total_tokens": 2558,
+        "completion_tokens": 335
+    }
+}

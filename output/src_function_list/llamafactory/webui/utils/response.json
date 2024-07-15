@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-e2aec4df7e544f5a83656d31509075c2",
+    "object": "chat.completion",
+    "created": 1720772940,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类名| 功能|\n|---|---|\n|abort_process| 终止进程及其子进程|\n|can_quantize| 根据finetuning_type返回可选择的量化选项|\n|can_quantize_to| 根据量化方法返回可选择的量化位宽|\n|change_stage| 根据提供的训练阶段返回空列表和布尔值，布尔值表示是否为PyTorch阶段|\n|check_json_schema| 验证JSON格式的工具列表|\n|clean_cmd| 清理命令行参数，移除空值或False值|\n|gen_cmd| 生成命令行字符串|\n|save_cmd| 将命令行参数保存到文件|\n|get_eval_results| 从结果文件中读取并格式化JSON数据|\n|get_time| 获取当前时间戳|\n|get_trainer_info| 从训练日志中获取运行信息，如进度和损失图|\n|load_args| 从配置文件中加载参数|\n|save_args| 将参数保存到配置文件|\n|list_config_paths| 列出可用的配置文件选项|\n|list_output_dirs| 列出包含训练结果的输出目录选项|\n|create_ds_config| 创建预设的分布式训练配置文件|"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 2131,
+        "total_tokens": 2396,
+        "completion_tokens": 265
+    }
+}

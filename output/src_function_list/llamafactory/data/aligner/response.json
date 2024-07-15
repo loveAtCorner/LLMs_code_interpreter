@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-8dd31f0067014d98998e52a787c826a6",
+    "object": "chat.completion",
+    "created": 1720772795,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类名称| 功能|\n|---|---|\n|`get_logger`| 获取日志记录器|\n|`_convert_images`| 将图像路径转换为绝对路径，如果需要的话|\n|`convert_alpaca`| 将ALPACA格式的数据转换为统一格式|\n|`convert_sharegpt`| 将ShareGPT格式的数据转换为统一格式|\n|`align_dataset`| 将给定的`Dataset`或`IterableDataset`转换为统一格式并适配训练参数|"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 2001,
+        "total_tokens": 2117,
+        "completion_tokens": 116
+    }
+}

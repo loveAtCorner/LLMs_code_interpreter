@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-e83fa3aa436341a38920ef034af9a642",
+    "object": "chat.completion",
+    "created": 1720772814,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "以下是您提供的Python脚本中函数和类的名称，以及它们的功能描述，按照Markdown表格的形式呈现：\n\n| 功能| 函数/类名|\n|---|---|\n|获取日志记录器| `get_logger(__name__)`|\n|编码反馈示例，处理输入数据并生成相应的ID列表| `_encode_feedback_example(prompt, response, kl_response, system, tools, template, tokenizer, processor, data_args)`|\n|检查prompt和response是否满足条件，处理无效示例并编码| `_encode_feedback_example`中的条件判断|\n|根据模板和tokenizer对消息进行编码| `_encode_feedback_example`中的`template.encode_oneturn`|\n|根据数据参数确定序列长度| `_encode_feedback_example`中的`infer_seqlen`|\n|处理图像相关的输入（如像素值和token_type_ids，如果processor支持）| `_encode_feedback_example`中的相关逻辑|\n|处理反馈数据集，生成模型输入| `preprocess_feedback_dataset(examples, template, tokenizer, processor, data_args)`|\n|检查示例的有效性并调用 `_encode_feedback_example`进行编码| `preprocess_feedback_dataset`中的循环|\n|处理图像相关的输入（如像素值和token_type_ids，如果processor支持）| `preprocess_feedback_dataset`中的相关逻辑|\n|记录警告信息，关于无效示例或数据集中偏好类型的数量| `logger.warning`调用|\n\n请注意，这个表格仅包含主要的函数和类，以及它们的主要功能。脚本中还包含了一些Python内置库和第三方库（如`typing`和`transformers`）的导入，以及一些辅助常量和类型注解，这些没有在表格中列出，因为它们不是函数或类。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 1270,
+        "total_tokens": 1635,
+        "completion_tokens": 365
+    }
+}

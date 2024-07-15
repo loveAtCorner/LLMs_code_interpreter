@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "返回下面这个脚本当中所有函数或者类的名称，及其对应的功能\n返回内容的格式需要遵循markdown表格的形式\n\n```python\nimport importlib.metadata\nimport importlib.util\nfrom functools import lru_cache\nfrom typing import TYPE_CHECKING\n\nfrom packaging import version\n\n\nif TYPE_CHECKING:\n    from packaging.version import Version\n\n\ndef _is_package_available(name: str) -> bool:\n    return importlib.util.find_spec(name) is not None\n\n\ndef _get_package_version(name: str) -> \"Version\":\n    try:\n        return version.parse(importlib.metadata.version(name))\n    except Exception:\n        return version.parse(\"0.0.0\")\n\n\ndef is_fastapi_available():\n    return _is_package_available(\"fastapi\")\n\n\ndef is_galore_available():\n    return _is_package_available(\"galore_torch\")\n\n\ndef is_gradio_available():\n    return _is_package_available(\"gradio\")\n\n\ndef is_matplotlib_available():\n    return _is_package_available(\"matplotlib\")\n\n\ndef is_pillow_available():\n    return _is_package_available(\"PIL\")\n\n\ndef is_requests_available():\n    return _is_package_available(\"requests\")\n\n\ndef is_rouge_available():\n    return _is_package_available(\"rouge_chinese\")\n\n\ndef is_starlette_available():\n    return _is_package_available(\"sse_starlette\")\n\n\ndef is_uvicorn_available():\n    return _is_package_available(\"uvicorn\")\n\n\ndef is_vllm_available():\n    return _is_package_available(\"vllm\")\n\n\n@lru_cache\ndef is_vllm_version_greater_than_0_5():\n    return _get_package_version(\"vllm\") >= version.parse(\"0.5.0\")\n\n\n@lru_cache\ndef is_vllm_version_greater_than_0_5_1():\n    return _get_package_version(\"vllm\") >= version.parse(\"0.5.1\")\n```"
+        }
+    ],
+    "temperature": 0
+}

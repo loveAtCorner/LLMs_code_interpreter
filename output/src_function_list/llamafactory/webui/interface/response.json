@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-2faaa9cf79544a30a33f37f970aab6f3",
+    "object": "chat.completion",
+    "created": 1720772926,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "以下是给定Python脚本中函数和类的名称及其功能的Markdown表格形式：\n\n| 功能 | 函数/类名称 |\n| --- | --- |\n| 初始化引擎，设置演示模式和纯文本聊天选项 | `Engine(demo_mode, pure_chat)` |\n| 创建用户界面，包括顶部、训练、评估预测、聊天和（非演示模式下）导出选项 | `create_ui(demo_mode)` |\n| 返回一个Gradio Blocks实例，用于演示模式下的Web应用 | `create_web_demo()` |\n| 启动用户界面，根据环境变量设置是否分享和服务器名称 | `run_web_ui()` |\n| 启动演示模式下的Web应用，功能与`run_web_ui()`类似 | `run_web_demo()` |\n\n请注意，这里没有单独的类，只有函数。`Engine`是一个类的实例，用于管理UI元素和逻辑。`gr.Blocks`和`gr.Dropdown`是Gradio库中的类，用于创建用户界面元素。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 773,
+        "total_tokens": 982,
+        "completion_tokens": 209
+    }
+}

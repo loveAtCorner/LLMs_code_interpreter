@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-870e2135eb7544eebf0bb4a09b2ad494",
+    "object": "chat.completion",
+    "created": 1720772895,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "以下是您提供的Python脚本中函数和类的名称，以及它们的功能描述。这些信息以Markdown表格的形式呈现：\n\n| 功能名称 | 类型 | 描述 |\n| --- | --- | --- |\n| `run_kto` | 函数 | 主要入口函数，用于运行KTO（知识图谱增强的训练）流程，包括加载模型、数据预处理、训练和评估。 |\n| `KTODataCollatorWithPadding` | 类 | 数据集封装器，用于对输入数据进行填充和格式化，以便用于训练和评估。 |\n| `load_tokenizer` | 函数 | 加载预训练模型的分词器。 |\n| `get_dataset` | 函数 | 根据给定参数加载和处理数据集。 |\n| `load_model` | 函数 | 加载预训练模型和配置。 |\n| `create_ref_model` | 函数 | 创建参考模型，用于KTO训练中的对比。 |\n| `CustomKTOTrainer` | 类 | 自定义的Trainer类，用于执行KTO训练和评估流程。 |\n| `plot_loss` | 函数 | 绘制训练和评估过程中的损失曲线。 |\n| `create_modelcard_and_push` | 函数 | 创建模型卡片并将其推送到指定位置。 |\n\n请注意，这个脚本中没有明确的类定义，但存在多个函数，这些函数在KTO训练和评估流程中执行不同的任务。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 677,
+        "total_tokens": 985,
+        "completion_tokens": 308
+    }
+}

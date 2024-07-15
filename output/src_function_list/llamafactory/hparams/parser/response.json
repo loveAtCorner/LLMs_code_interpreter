@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-bc2e8b0a33df4277bba3844c8b0ce011",
+    "object": "chat.completion",
+    "created": 1720772845,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类名称| 功能|\n|---|---|\n|`get_logger`| 获取日志记录器|\n|`check_dependencies`| 检查依赖项是否安装|\n|`_set_transformers_logging`| 设置Transformers库的日志级别和默认处理器|\n|`_verify_model_args`| 验证模型参数是否与训练方法兼容|\n|`_check_extra_dependencies`| 检查额外的库依赖是否安装|\n|`_parse_args`| 解析命令行参数|\n|`_parse_train_args`| 解析用于训练的参数|\n|`_parse_infer_args`| 解析用于推理的参数|\n|`_parse_eval_args`| 解析用于评估的参数|\n|`get_train_args`| 获取训练所需的参数并进行验证|\n|`get_infer_args`| 获取推理所需的参数并进行验证|\n|`get_eval_args`| 获取评估所需的参数并进行验证|\n|`logging`| Python标准库中的日志模块|\n|`os`| Python标准库中的操作系统接口模块|\n|`sys`| Python标准库中的系统信息模块|\n|`torch`| PyTorch深度学习库|\n|`transformers`| Hugging Face的Transformers库|\n|`HfArgumentParser`| Hugging Face的命令行参数解析器|\n|`Seq2SeqTrainingArguments`| Hugging Face的序列到序列训练参数类|\n|`ParallelMode`| Hugging Face的训练并行模式枚举|\n|`require_version`| Hugging Face的库版本检查函数|\n|`get_last_checkpoint`| 获取训练目录中最后一个检查点文件的路径|\n|`is_deepspeed_zero3_enabled`| 检查是否使用了DeepSpeed ZeRO-3|\n|`is_torch_bf16_gpu_available`| 检查GPU是否支持bfloat16数据类型|\n|`ModelArguments`| 模型参数类|\n|`DataArguments`| 数据参数类|\n|`EvaluationArguments`| 评估参数类|\n|`FinetuningArguments`| 微调参数类|\n|`GeneratingArguments`| 生成参数类|\n|`_TRAIN_ARGS`| 训练参数类的列表|\n|`_TRAIN_CLS`| 训练参数类的元组类型|\n|`_INFER_ARGS`| 推理参数类的列表|\n|`_INFER_CLS`| 推理参数类的元组类型|\n|`_EVAL_ARGS`| 评估参数类的列表|\n|`_EVAL_CLS`| 评估参数类的元组类型|"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 3751,
+        "total_tokens": 4320,
+        "completion_tokens": 569
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "返回下面这个脚本当中所有函数或者类的名称，及其对应的功能\n返回内容的格式需要遵循markdown表格的形式\n\n```python\nimport math\nfrom contextlib import nullcontext\nfrom typing import TYPE_CHECKING\n\nimport torch\nfrom transformers.integrations import is_deepspeed_zero3_enabled\n\nfrom ...extras.logging import get_logger\n\n\nif TYPE_CHECKING:\n    from transformers import PreTrainedModel, PreTrainedTokenizer\n\n\nlogger = get_logger(__name__)\n\n\ndef _noisy_mean_initialization(embed_weight: \"torch.Tensor\", num_new_tokens: int) -> None:\n    embedding_dim = embed_weight.size(1)\n    avg_weight = embed_weight[:-num_new_tokens].mean(dim=0, keepdim=True)\n    noise_weight = torch.empty_like(embed_weight[-num_new_tokens:])\n    noise_weight.normal_(mean=0, std=(1.0 / math.sqrt(embedding_dim)))\n    embed_weight[-num_new_tokens:] = avg_weight + noise_weight\n\n\ndef resize_embedding_layer(model: \"PreTrainedModel\", tokenizer: \"PreTrainedTokenizer\") -> None:\n    r\n    if is_deepspeed_zero3_enabled():\n        import deepspeed  \n\n        params = [model.get_input_embeddings().weight]\n        if model.get_output_embeddings() is not None and not model.config.tie_word_embeddings:\n            params.append(model.get_output_embeddings().weight)\n\n        context_maybe_zero3 = deepspeed.zero.GatheredParameters(params, modifier_rank=0)\n    else:\n        context_maybe_zero3 = nullcontext()\n\n    with context_maybe_zero3:\n        current_embedding_size = model.get_input_embeddings().weight.size(0)\n\n    if len(tokenizer) > current_embedding_size:\n        if getattr(model, \"quantization_method\", None):\n            raise ValueError(\"Cannot resize embedding layers of a quantized model.\")\n\n        if not isinstance(model.get_output_embeddings(), torch.nn.Linear):\n            raise ValueError(\"Current model does not support resizing embedding layers.\")\n\n        model.resize_token_embeddings(len(tokenizer), pad_to_multiple_of=64)\n        with context_maybe_zero3:\n            new_embedding_size = model.get_input_embeddings().weight.size(0)\n            num_new_tokens = new_embedding_size - current_embedding_size\n            _noisy_mean_initialization(model.get_input_embeddings().weight.data, num_new_tokens)\n            _noisy_mean_initialization(model.get_output_embeddings().weight.data, num_new_tokens)\n\n        logger.info(\"Resized token embeddings from {} to {}.\".format(current_embedding_size, new_embedding_size))\n```"
+        }
+    ],
+    "temperature": 0
+}

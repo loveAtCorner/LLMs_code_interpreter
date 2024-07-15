@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-f8728aae9c9c421eb2ae55ab7fe7e821",
+    "object": "chat.completion",
+    "created": 1720772551,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "这个Python脚本的核心功能是计算模型在评估数据上的准确性。它定义了一个名为`compute_accuracy`的函数，该函数接收一个名为`eval_preds`的参数，该参数预期是一个`EvalPrediction`类型的对象，这是Hugging Face的Transformers库中用于存储模型预测结果的结构。函数内部，它首先计算预测结果中第一类概率大于第二类概率的样本占比，然后返回一个字典，其中包含了计算出的精度（accuracy）。\n\n这个脚本与大语言模型的指令精调任务相关，因为它通常用于评估一个分类模型（如BERT、RoBERTa等）在特定任务上的性能。在精调任务中，我们通常会训练模型以预测两个或多个类别的概率，然后使用这个函数来计算模型在验证或测试集上的分类准确性。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 122,
+        "total_tokens": 297,
+        "completion_tokens": 175
+    }
+}

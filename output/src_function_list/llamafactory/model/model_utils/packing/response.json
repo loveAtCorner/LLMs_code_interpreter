@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-29e302ee9ad1446cae3d16e05706046f",
+    "object": "chat.completion",
+    "created": 1720772865,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "以下是您提供的Python脚本中函数和类的名称，以及它们的功能描述，按照Markdown表格的形式呈现：\n\n| 功能| 函数/类名|\n|---|---|\n|获取注意力掩码中序列长度| `get_seqlens_in_batch`|\n|从注意力掩码中获取未填充数据| `get_unpad_data`|\n|为特定模型类型应用块对角注意力补丁| `patch_for_block_diag_attn`|\n|配置序列打包参数| `configure_packing`|\n\n接下来是每个函数的详细描述：\n\n1. **`get_seqlens_in_batch`**:\n   - 功能：计算输入注意力掩码中每个样本的序列长度。\n   - 参数：\n     - `attention_mask`: 形状为 `(batch_size, sequence_length)` 的张量，表示输入序列的注意力掩码。\n   - 返回值：形状为 `(batch_size)` 的张量，表示每个样本的序列长度。\n\n2. **`get_unpad_data`**:\n   - 功能：从注意力掩码中提取未填充数据，包括索引、累积序列长度和最大序列长度。\n   - 参数：\n     - `attention_mask`: 形状为 `(batch_size, sequence_length)` 的张量，表示输入序列的注意力掩码。\n   - 返回值：一个元组，包含：\n     - 索引张量：形状为 `(total_tokens)`，表示未填充数据的索引。\n     - 累积序列长度张量：形状为 `(batch_size + 1)`，表示累积的序列长度。\n     - 最大序列长度：整数，表示输入序列中的最大序列长度。\n\n3. **`patch_for_block_diag_attn`**:\n   - 功能：根据给定的模型类型，将`get_unpad_data`函数应用于特定的模型类，以实现块对角注意力。\n   - 参数：\n     - `model_type`: 字符串，表示要应用补丁的模型类型（如 \"cohere\"、\"falcon\" 等）。\n\n4. **`configure_packing`**:\n   - 功能：根据模型参数配置序列打包，包括是否启用块对角注意力。\n   - 参数：\n     - `config`: `PretrainedConfig` 类型，表示预训练模型的配置。\n     - `model_args`: `ModelArguments` 类型，表示模型的命令行参数。\n     - `is_trainable`: 布尔值，表示模型是否可训练。\n   - 功能：\n     - 如果模型支持块对角注意力且训练时启用，调用 `patch_for_block_diag_attn` 函数并输出日志。\n     - 否则，如果模型不支持块对角注意力或训练不可用，抛出错误。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 835,
+        "total_tokens": 1425,
+        "completion_tokens": 590
+    }
+}

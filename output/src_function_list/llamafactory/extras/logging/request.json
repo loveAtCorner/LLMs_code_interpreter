@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "返回下面这个脚本当中所有函数或者类的名称，及其对应的功能\n返回内容的格式需要遵循markdown表格的形式\n\n```python\nimport logging\nimport os\nimport sys\nfrom concurrent.futures import ThreadPoolExecutor\n\nfrom .constants import RUNNING_LOG\n\n\nclass LoggerHandler(logging.Handler):\n    r\n\n    def __init__(self, output_dir: str) -> None:\n        super().__init__()\n        formatter = logging.Formatter(\n            fmt=\"%(asctime)s - %(levelname)s - %(name)s - %(message)s\", datefmt=\"%m/%d/%Y %H:%M:%S\"\n        )\n        self.setLevel(logging.INFO)\n        self.setFormatter(formatter)\n\n        os.makedirs(output_dir, exist_ok=True)\n        self.running_log = os.path.join(output_dir, RUNNING_LOG)\n        if os.path.exists(self.running_log):\n            os.remove(self.running_log)\n\n        self.thread_pool = ThreadPoolExecutor(max_workers=1)\n\n    def _write_log(self, log_entry: str) -> None:\n        with open(self.running_log, \"a\", encoding=\"utf-8\") as f:\n            f.write(log_entry + \"\\n\\n\")\n\n    def emit(self, record) -> None:\n        if record.name == \"httpx\":\n            return\n\n        log_entry = self.format(record)\n        self.thread_pool.submit(self._write_log, log_entry)\n\n    def close(self) -> None:\n        self.thread_pool.shutdown(wait=True)\n        return super().close()\n\n\ndef get_logger(name: str) -> logging.Logger:\n    r\n    formatter = logging.Formatter(\n        fmt=\"%(asctime)s - %(levelname)s - %(name)s - %(message)s\", datefmt=\"%m/%d/%Y %H:%M:%S\"\n    )\n    handler = logging.StreamHandler(sys.stdout)\n    handler.setFormatter(formatter)\n\n    logger = logging.getLogger(name)\n    logger.setLevel(logging.INFO)\n    logger.addHandler(handler)\n\n    return logger\n\n\ndef reset_logging() -> None:\n    r\n    root = logging.getLogger()\n    list(map(root.removeHandler, root.handlers))\n    list(map(root.removeFilter, root.filters))\n```"
+        }
+    ],
+    "temperature": 0
+}

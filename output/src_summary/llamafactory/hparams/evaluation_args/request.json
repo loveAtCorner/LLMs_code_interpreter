@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "请概括下面这个脚本的核心功能，然后该功能是否和大语言模型的指令精调任务有关```python\nimport os\nfrom dataclasses import dataclass, field\nfrom typing import Literal, Optional\n\nfrom datasets import DownloadMode\n\n\n@dataclass\nclass EvaluationArguments:\n    r\n\n    task: str = field(\n        metadata={\"help\": \"Name of the evaluation task.\"},\n    )\n    task_dir: str = field(\n        default=\"evaluation\",\n        metadata={\"help\": \"Path to the folder containing the evaluation datasets.\"},\n    )\n    batch_size: int = field(\n        default=4,\n        metadata={\"help\": \"The batch size per GPU for evaluation.\"},\n    )\n    seed: int = field(\n        default=42,\n        metadata={\"help\": \"Random seed to be used with data loaders.\"},\n    )\n    lang: Literal[\"en\", \"zh\"] = field(\n        default=\"en\",\n        metadata={\"help\": \"Language used at evaluation.\"},\n    )\n    n_shot: int = field(\n        default=5,\n        metadata={\"help\": \"Number of examplars for few-shot learning.\"},\n    )\n    save_dir: Optional[str] = field(\n        default=None,\n        metadata={\"help\": \"Path to save the evaluation results.\"},\n    )\n    download_mode: DownloadMode = field(\n        default=DownloadMode.REUSE_DATASET_IF_EXISTS,\n        metadata={\"help\": \"Download mode used for the evaluation datasets.\"},\n    )\n\n    def __post_init__(self):\n        if self.save_dir is not None and os.path.exists(self.save_dir):\n            raise ValueError(\"`save_dir` already exists, use another one.\")\n```"
+        }
+    ],
+    "temperature": 0
+}

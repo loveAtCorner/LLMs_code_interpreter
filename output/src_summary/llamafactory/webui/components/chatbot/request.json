@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "请概括下面这个脚本的核心功能，然后该功能是否和大语言模型的指令精调任务有关```python\nfrom typing import TYPE_CHECKING, Dict, Tuple\n\nfrom ...data import Role\nfrom ...extras.packages import is_gradio_available\nfrom ..utils import check_json_schema\n\n\nif is_gradio_available():\n    import gradio as gr\n\n\nif TYPE_CHECKING:\n    from gradio.components import Component\n\n    from ..engine import Engine\n\n\ndef create_chat_box(\n    engine: \"Engine\", visible: bool = False\n) -> Tuple[\"Component\", \"Component\", Dict[str, \"Component\"]]:\n    with gr.Column(visible=visible) as chat_box:\n        chatbot = gr.Chatbot(show_copy_button=True)\n        messages = gr.State([])\n        with gr.Row():\n            with gr.Column(scale=4):\n                with gr.Row():\n                    with gr.Column():\n                        role = gr.Dropdown(choices=[Role.USER.value, Role.OBSERVATION.value], value=Role.USER.value)\n                        system = gr.Textbox(show_label=False)\n                        tools = gr.Textbox(show_label=False, lines=3)\n\n                    with gr.Column() as image_box:\n                        image = gr.Image(sources=[\"upload\"], type=\"numpy\")\n\n                query = gr.Textbox(show_label=False, lines=8)\n                submit_btn = gr.Button(variant=\"primary\")\n\n            with gr.Column(scale=1):\n                max_new_tokens = gr.Slider(minimum=8, maximum=4096, value=512, step=1)\n                top_p = gr.Slider(minimum=0.01, maximum=1.0, value=0.7, step=0.01)\n                temperature = gr.Slider(minimum=0.01, maximum=1.5, value=0.95, step=0.01)\n                clear_btn = gr.Button()\n\n    tools.input(check_json_schema, inputs=[tools, engine.manager.get_elem_by_id(\"top.lang\")])\n\n    submit_btn.click(\n        engine.chatter.append,\n        [chatbot, messages, role, query],\n        [chatbot, messages, query],\n    ).then(\n        engine.chatter.stream,\n        [chatbot, messages, system, tools, image, max_new_tokens, top_p, temperature],\n        [chatbot, messages],\n    )\n    clear_btn.click(lambda: ([], []), outputs=[chatbot, messages])\n\n    return (\n        chatbot,\n        messages,\n        dict(\n            chat_box=chat_box,\n            role=role,\n            system=system,\n            tools=tools,\n            image_box=image_box,\n            image=image,\n            query=query,\n            submit_btn=submit_btn,\n            max_new_tokens=max_new_tokens,\n            top_p=top_p,\n            temperature=temperature,\n            clear_btn=clear_btn,\n        ),\n    )\n```"
+        }
+    ],
+    "temperature": 0
+}

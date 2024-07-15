@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "请概括下面这个脚本的核心功能，然后该功能是否和大语言模型的指令精调任务有关```python\nfrom typing import TYPE_CHECKING\n\nfrom ...extras.constants import MOD_SUPPORTED_MODELS\n\n\nif TYPE_CHECKING:\n    from transformers import PretrainedConfig, PreTrainedModel\n\n    from ...hparams import ModelArguments\n\n\ndef load_mod_pretrained_model(**init_kwargs) -> \"PreTrainedModel\":\n    from MoD import AutoMoDModelForCausalLM\n\n    return AutoMoDModelForCausalLM.from_pretrained(**init_kwargs)\n\n\ndef convert_pretrained_model_to_mod(\n    model: \"PreTrainedModel\", config: \"PretrainedConfig\", model_args: \"ModelArguments\"\n) -> \"PreTrainedModel\":\n    from MoD import apply_mod_to_hf\n\n    if getattr(config, \"model_type\", None) not in MOD_SUPPORTED_MODELS:\n        raise ValueError(\"Current model is not supported by mixture-of-depth.\")\n\n    model = apply_mod_to_hf(model)\n    model = model.to(model_args.compute_dtype)\n    return model\n```"
+        }
+    ],
+    "temperature": 0
+}

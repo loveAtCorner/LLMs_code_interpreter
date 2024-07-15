@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-8cd11fdce89e41c1b6e85059b82deb9d",
+    "object": "chat.completion",
+    "created": 1720772944,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "以下是您提供的Python脚本中所有函数和类的名称，以及它们的功能。这些功能以Markdown表格的形式呈现：\n\n| 功能名称 | 类型 | 功能描述 |\n| --- | --- | --- |\n| `prev_page` | 函数 | 返回给定页索引的前一页索引，如果当前页索引为0，则返回0。 |\n| `next_page` | 函数 | 返回给定页索引的下一页索引，如果已达到数据末尾，则返回当前页索引。 |\n| `can_preview` | 函数 | 检查数据集是否可以预览，如果可以，返回一个可交互的按钮，否则返回一个非交互的按钮。 |\n| `_load_data_file` | 函数 | 从给定文件路径加载数据，支持JSON和JSONL格式。 |\n| `get_preview` | 函数 | 获取数据集的预览，包括数据长度、指定页的数据和一个包含预览内容的Column组件。 |\n| `create_preview_box` | 函数 | 创建一个包含数据预览功能的盒子，包括按钮、计数器和预览样本。 |\n\n请注意，这个脚本中没有类定义，只有函数。这个脚本主要用于处理数据预览功能，包括从文件中加载数据、分页显示数据以及处理用户交互。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 973,
+        "total_tokens": 1258,
+        "completion_tokens": 285
+    }
+}

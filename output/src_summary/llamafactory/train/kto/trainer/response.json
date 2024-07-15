@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-2781d09f7a12482cafec9f4385645ac0",
+    "object": "chat.completion",
+    "created": 1720772534,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "这个脚本的核心功能是定义了一个名为`CustomKTOTrainer`的自定义训练器，它是基于Hugging Face的`Trainer`和`KTOTrainer`的扩展。这个训练器主要用于执行基于知识温度调优（KTO）的模型微调任务，这是一种强化学习策略，用于指导模型在生成过程中选择更“可取”（desirable）的输出，同时避免“不可取”（undesirable）的输出。\n\n`CustomKTOTrainer`的主要特点包括：\n1. **KTO损失计算**：训练器实现了KTO损失函数，该函数计算模型生成的“可取”和“不可取”输出的奖励，以及KL散度，用于指导模型学习。\n2. **模型和参数处理**：训练器根据配置处理模型，包括禁用dropout、准备深度学习加速器（如DeepSpeed）和设置优化器和学习率调度器。\n3. **回调和数据处理**：训练器可以添加保存处理器的回调，并根据配置处理数据，如使用自定义的优化器和学习率调度器。\n4. **自定义前向函数**：定义了前向函数，用于计算模型的logits和对齐的log概率。\n5. **参考模型**：训练器可以使用一个参考模型来计算参考的logits和log概率，用于KTO损失计算。\n\n这个训练器与大语言模型的指令精调任务有关，因为它设计用于执行特定的微调策略（KTO），该策略可以用于改进模型在特定任务上的输出质量，例如生成更符合用户期望的文本。通过调整权重和奖励，可以指导模型在生成过程中更加关注某些特性或避免某些不期望的行为。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 1924,
+        "total_tokens": 2290,
+        "completion_tokens": 366
+    }
+}

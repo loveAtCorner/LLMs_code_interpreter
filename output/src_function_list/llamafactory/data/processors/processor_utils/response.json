@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-9bb7aa5dda6c4f58ae9d8298afc4e4b5",
+    "object": "chat.completion",
+    "created": 1720772818,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "| 函数/类名 | 功能 |\n| --- | --- |\n| `search_for_fit` | 在给定的数字序列中查找第一个大于或等于给定容量的数字的索引，返回-1表示容量小于序列中的最小值。 |\n| `greedy_knapsack` | 使用贪心算法解决背包问题，返回所有可能的背包组合。 |\n| `get_pixel_values` | 从给定的图像中提取像素值，使用给定的处理器。 |\n| `get_paligamma_token_type_ids` | 为输入序列生成Paligamma模型所需的token type IDs。 |\n| `infer_seqlen` | 根据源序列长度、目标序列长度和最大长度限制，推断出新的源序列长度和目标序列长度。 |"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 622,
+        "total_tokens": 791,
+        "completion_tokens": 169
+    }
+}

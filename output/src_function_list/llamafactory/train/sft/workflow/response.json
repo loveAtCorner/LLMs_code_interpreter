@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-65c581ccaba7426fad77ee09fed1b0ae",
+    "object": "chat.completion",
+    "created": 1720772918,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类名| 功能|\n|---|---|\n|`run_sft`| 主要入口函数，用于运行序列到序列的 finetuning 过程|\n|`SFTDataCollatorWith4DAttentionMask`| 数据集 collator，用于处理 4D 注意力掩码|\n|`CustomSeq2SeqTrainer`| 自定义的 Seq2Seq 训练器，用于训练、评估和预测|\n|`ComputeMetrics`| 计算指标类，用于评估和预测阶段|\n|`compute_accuracy`| 计算准确率的辅助函数|\n|`eval_logit_processor`| 评估阶段的 logits 处理函数|\n|`get_logits_processor`| 获取 logits 处理器的函数|\n|`get_dataset`| 获取数据集的函数|\n|`split_dataset`| 划分数据集的函数|\n|`load_model`| 加载模型的函数|\n|`load_tokenizer`| 加载 tokenizer 的函数|\n|`create_modelcard_and_push`| 创建并推送 modelcard 的函数|\n|`plot_loss`| 绘制损失曲线的函数|"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 963,
+        "total_tokens": 1209,
+        "completion_tokens": 246
+    }
+}

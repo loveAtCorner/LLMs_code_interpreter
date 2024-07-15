@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-b4c7173d03794b569b00949951aff490",
+    "object": "chat.completion",
+    "created": 1720772947,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "以下是您提供的Python脚本中函数和类的名称，以及它们的功能描述，按照Markdown表格的形式呈现：\n\n| 功能| 函数/类名| 描述|\n|---|---|---|\n| 检查是否可以量化模型| `can_quantize`| 根据提供的检查点路径决定是否显示可量化的下拉菜单。|\n| 导出模型| `save_model`| 检查输入参数的有效性，然后调用`export_model`函数导出模型，最后进行垃圾回收。|\n| 创建导出选项卡| `create_export_tab`| 创建一个包含导出选项的界面，包括滑块、下拉菜单、文本框和按钮，然后设置按钮的点击事件处理函数为`save_model`。|\n\n请注意，这个脚本中没有定义类，只有三个函数。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 1157,
+        "total_tokens": 1338,
+        "completion_tokens": 181
+    }
+}

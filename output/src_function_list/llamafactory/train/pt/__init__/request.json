@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "返回下面这个脚本当中所有函数或者类的名称，及其对应的功能\n返回内容的格式需要遵循markdown表格的形式\n\n```python\nfrom .workflow import run_pt\n\n\n__all__ = [\"run_pt\"]\n```"
+        }
+    ],
+    "temperature": 0
+}

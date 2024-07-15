@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "返回下面这个脚本当中所有函数或者类的名称，及其对应的功能\n返回内容的格式需要遵循markdown表格的形式\n\n```python\nfrom dataclasses import dataclass\nfrom typing import Dict, List, Sequence, Tuple\n\nfrom ..data import Role\nfrom ..extras.constants import CHOICES\n\n\n@dataclass\nclass EvalTemplate:\n    system: str\n    choice: str\n    answer: str\n\n    def _parse_example(self, example: Dict[str, str]) -> Tuple[str, str]:\n        r\n        candidates = [self.choice.format(choice=ch, content=example[ch]) for ch in CHOICES if ch in example]\n        return \"\".join([example[\"question\"]] + candidates + [self.answer]), example[\"answer\"]\n\n    def format_example(\n        self, target_data: Dict[str, str], support_set: Sequence[Dict[str, str]], subject_name: str\n    ) -> List[Dict[str, str]]:\n        r\n        messages = []\n        for k in range(len(support_set)):\n            prompt, response = self._parse_example(support_set[k])\n            messages.append({\"role\": Role.USER.value, \"content\": prompt})\n            messages.append({\"role\": Role.ASSISTANT.value, \"content\": response})\n\n        prompt, response = self._parse_example(target_data)\n        messages.append({\"role\": Role.USER.value, \"content\": prompt})\n        messages.append({\"role\": Role.ASSISTANT.value, \"content\": response})\n        messages[0][\"content\"] = self.system.format(subject=subject_name) + messages[0][\"content\"]\n        return messages\n\n\neval_templates: Dict[str, \"EvalTemplate\"] = {}\n\n\ndef _register_eval_template(name: str, system: str, choice: str, answer: str) -> None:\n    eval_templates[name] = EvalTemplate(system=system, choice=choice, answer=answer)\n\n\ndef get_eval_template(name: str) -> \"EvalTemplate\":\n    eval_template = eval_templates.get(name, None)\n    assert eval_template is not None, \"Template {} does not exist.\".format(name)\n    return eval_template\n\n\n_register_eval_template(\n    name=\"en\",\n    system=\"The following are multiple choice questions (with answers) about {subject}.\\n\\n\",\n    choice=\"\\n{choice}. {content}\",\n    answer=\"\\nAnswer:\",\n)\n\n\n_register_eval_template(\n    name=\"zh\",\n    system=\"以下是中国关于{subject}考试的单项选择题，请选出其中的正确答案。\\n\\n\",\n    choice=\"\\n{choice}. {content}\",\n    answer=\"\\n答案：\",\n)\n```"
+        }
+    ],
+    "temperature": 0
+}

@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-4b67531d6762461ebea353490035e2df",
+    "object": "chat.completion",
+    "created": 1720772784,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "| 类名 | 功能 |\n| --- | --- |\n| `Response` | 用于存储聊天响应的类，包含响应文本、响应长度、提示长度和结束原因。 |\n| `BaseEngine` | 基础引擎类，定义了通用的聊天、流式聊天和获取分数的方法，以及模型、分词器和生成参数。 |\n\n以下是`BaseEngine`类的抽象方法（abstractmethod）及其功能描述：\n\n| 方法名 | 功能 |\n| --- | --- |\n| `__init__` | 初始化方法，接受模型参数、数据参数、微调参数和生成参数。 |\n| `chat` | 异步聊天方法，接收消息序列，以及可选的系统、工具和图像输入，返回响应列表。 |\n| `stream_chat` | 异步流式聊天方法，接收消息序列，以及可选的系统、工具和图像输入，返回响应文本的异步生成器。 |\n| `get_scores` | 异步获取分数方法，接收输入序列，返回分数列表。 |"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 472,
+        "total_tokens": 695,
+        "completion_tokens": 223
+    }
+}

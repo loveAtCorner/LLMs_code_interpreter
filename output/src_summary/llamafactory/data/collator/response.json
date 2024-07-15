@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-e85ba58fa9954113b67daae12f048788",
+    "object": "chat.completion",
+    "created": 1720772433,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "这个脚本包含三个数据收集器（DataCollator）类：`SFTDataCollatorWith4DAttentionMask`，`PairwiseDataCollatorWithPadding`和`KTODataCollatorWithPadding`。它们都是基于`transformers`库中的`DataCollatorForSeq2Seq`类进行扩展的。这些数据收集器用于在训练序列到序列（Seq2Seq）模型时对输入数据进行预处理。\n\n1. `SFTDataCollatorWith4DAttentionMask`：这个类主要用于处理自注意力（self-attention） mask，将其转换为4维张量，以支持块对角注意力（block-diagonal attention）和不同的注意力实现（如eager、sdpa或flash_attention_2）。如果`block_diag_attn`设置为True且`attn_implementation`不是`flash_attention_2`，它会调用`prepare_4d_attention_mask`函数来生成4维注意力掩码。\n\n2. `PairwiseDataCollatorWithPadding`：这个类用于处理成对的输入数据，例如在对比学习或双任务学习中，它会将两个输入（如正样本和负样本）合并成一个批次，以便在训练时一起处理。\n\n3. `KTODataCollatorWithPadding`：这个类用于处理包含多个任务的输入数据，例如在一个任务中生成文本，另一个任务生成文本的摘要（KTO，即knowledge-to-text）。它将目标任务和KTO任务的输入合并成一个批次，并添加额外的标签（如`kto_tags`）来指示数据的来源。\n\n这些数据收集器与大语言模型的指令精调任务有关，因为它们都是为了适应特定的训练场景和任务需求，如多任务学习、对比学习或自注意力的优化。在精调模型时，合适的数据预处理是至关重要的，这些数据收集器提供了定制化的数据处理方式，以适应不同的精调任务。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 963,
+        "total_tokens": 1378,
+        "completion_tokens": 415
+    }
+}

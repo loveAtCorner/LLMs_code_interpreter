@@ -1,0 +1,20 @@
+|函数/类名| 功能|
+|---|---|
+|`CustomTrainer`| 继承自`Trainer`的自定义训练器，用于 finetuning 和特定的回调处理。|
+|| **方法：**
+|`__init__`| 初始化方法，设置 finetuning 参数、处理器和回调。|
+|`create_optimizer`| 创建自定义优化器。|
+|`create_scheduler`| 创建自定义学习率调度器。|
+|`add_callback`| 添加回调，如保存处理器和Pissa转换。|
+|`PissaConvertCallback`| 未在脚本中定义，但被引用，可能是用于Pissa格式转换的回调。|
+|`SaveProcessorCallback`| 未在脚本中定义，但被引用，可能是用于保存处理器的回调。|
+|`create_custom_optimzer`| 创建自定义优化器，可能包含特殊的优化算法或参数。|
+|`create_custom_scheduler`| 创建自定义学习率调度器，可能包含特殊的调度策略。|
+|`clip_grad_norm_old_version`| 未在脚本中定义，但被引用，可能是用于旧版梯度裁剪的函数。|
+|`BAdamCallback`| 未在脚本中定义，但被引用，可能是使用BAdam优化器的回调。|
+|`get_logger`| 从`...extras.logging`导入的函数，用于获取日志记录器。|
+|`FinetuningArguments`| 未在脚本中定义，但被引用，可能是用于finetuning的参数类。|
+|`ProcessorMixin`| 未在脚本中定义，但被引用，可能是用于处理数据的基类。|
+|`MethodType`| 用于将函数转换为方法的内置类型。|
+|`Optional`| 用于类型注解，表示参数可能是`None`。|
+|`TYPE_CHECKING`| 用于类型检查，仅在类型检查时有效。|

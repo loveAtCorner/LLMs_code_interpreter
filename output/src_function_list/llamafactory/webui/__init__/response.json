@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-21fe134ad8924c27a0b3c5fc17bb86fb",
+    "object": "chat.completion",
+    "created": 1720772942,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "很抱歉，您未提供具体的Python脚本内容。请您提供需要分析的Python代码，我将帮助您解析其中的函数和类名，以及它们的功能，并以Markdown表格的形式呈现。Markdown表格的格式如下：\n\n```markdown\n| 函数/类名 | 功能描述 |\n| --- | --- |\n| function_name1 | description1 |\n| class_name1 | description1 |\n| function_name2 | description2 |\n| ... | ... |\n```\n\n一旦您提供代码，我将填充这个表格。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 61,
+        "total_tokens": 171,
+        "completion_tokens": 110
+    }
+}

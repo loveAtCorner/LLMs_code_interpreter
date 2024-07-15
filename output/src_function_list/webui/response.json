@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-96370e7ae137481581ef1bda973348d2",
+    "object": "chat.completion",
+    "created": 1720772777,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "| 函数/类名 | 功能 |\n| --- | --- |\n| `create_ui` | 创建并返回一个用户界面（UI）对象 |\n| `main` | 主函数，设置环境变量并启动用户界面 |\n| `os.environ.get` | 从环境变量中获取指定键的值，如果不存在则返回默认值 |"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 160,
+        "total_tokens": 234,
+        "completion_tokens": 74
+    }
+}

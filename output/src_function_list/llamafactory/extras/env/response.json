@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-c10905517ce7451ca3400b8a9fa84fc7",
+    "object": "chat.completion",
+    "created": 1720772830,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类名称| 功能|\n|---|---|\n|`print_env`| 打印环境信息，包括版本号、平台信息、Python和相关库的版本，以及GPU或NPU的相关信息（如果可用）|"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 421,
+        "total_tokens": 474,
+        "completion_tokens": 53
+    }
+}

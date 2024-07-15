@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "请概括下面这个脚本的核心功能，然后该功能是否和大语言模型的指令精调任务有关```python\nfrom .chatbot import create_chat_box\nfrom .eval import create_eval_tab\nfrom .export import create_export_tab\nfrom .infer import create_infer_tab\nfrom .top import create_top\nfrom .train import create_train_tab\n\n\n__all__ = [\n    \"create_chat_box\",\n    \"create_eval_tab\",\n    \"create_export_tab\",\n    \"create_infer_tab\",\n    \"create_top\",\n    \"create_train_tab\",\n]\n```"
+        }
+    ],
+    "temperature": 0
+}

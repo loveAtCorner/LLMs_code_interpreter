@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-814c35b57f4247a3913d39c053b4f347",
+    "object": "chat.completion",
+    "created": 1720772889,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "以下是您提供的Python脚本中函数和类的名称，以及它们的功能描述。这些信息以Markdown表格的形式呈现：\n\n| 功能名称 | 类型 | 描述 |\n| --- | --- | --- |\n| `run_dpo` | 函数 | 主要入口函数，用于运行DPO（Data Programming Optimization）训练过程，包括加载模型、数据处理、训练和评估。 |\n| `PairwiseDataCollatorWithPadding` | 类 | 用于对序列对数据进行填充和编码的自定义数据处理器。 |\n| `load_tokenizer` | 函数 | 加载预训练模型的分词器。 |\n| `get_dataset` | 函数 | 根据给定参数加载数据集。 |\n| `load_model` | 函数 | 加载预训练模型。 |\n| `create_ref_model` | 函数 | 创建参考模型，用于DPO训练。 |\n| `CustomDPOTrainer` | 类 | 自定义的Trainer类，用于执行DPO训练和评估。 |\n| `plot_loss` | 函数 | 绘制训练过程中的损失曲线。 |\n| `create_modelcard_and_push` | 函数 | 创建模型卡片并将其推送到指定位置。 |\n\n请注意，这个脚本中没有直接定义类，但包含了一些类的实例（如`CustomDPOTrainer`）。此外，`run_dpo`函数是主要的入口点，它调用了其他辅助函数和类来执行整个训练流程。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 694,
+        "total_tokens": 1009,
+        "completion_tokens": 315
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-11274edf27f9487da6e8f6c04f4cb45a",
+    "object": "chat.completion",
+    "created": 1720772808,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "| 类/函数名 | 功能 |\n| --- | --- |\n| `ToolUtils` | 抽象基类，定义了工具实用工具类的接口，包括获取函数插槽、格式化工具和提取工具的方法 |\n| `DefaultToolUtils` | `ToolUtils` 的子类，实现默认的工具提示和工具提取逻辑 |\n| `get_function_slots` | 返回默认的函数插槽模板 |\n| `tool_formatter` | 根据给定的工具列表生成工具提示文本 |\n| `tool_extractor` | 从用户输入中提取工具名称和参数 |\n| `GLM4ToolUtils` | `ToolUtils` 的子类，实现针对 ChatGLM 的工具提示和工具提取逻辑 |\n| `get_function_slots` | 返回 GLM4 特定的函数插槽模板 |\n| `tool_formatter` | 根据给定的工具列表生成 GLM4 特定的工具提示文本 |\n| `tool_extractor` | 从用户输入中提取工具名称和参数，针对 GLM4 的格式要求 |"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 1039,
+        "total_tokens": 1266,
+        "completion_tokens": 227
+    }
+}

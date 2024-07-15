@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-0b96515a06eb4109a5da98ac29390acc",
+    "object": "chat.completion",
+    "created": 1720772818,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "| 函数/类名 | 功能 |\n| --- | --- |\n| `preprocess_pretrain_dataset` | 对预训练数据集进行预处理，包括文本拼接、tokenizer处理和打包（packing） |\n\n这个脚本中只有一个函数，`preprocess_pretrain_dataset`，它负责对输入的示例数据进行预处理，以便用于预训练模型。函数接受三个参数：\n\n1. `examples`: 包含文本数据的字典，键是数据集中的字段名，值是列表，列表中的每个元素是一个包含文本内容的字典。\n2. `tokenizer`: 一个`PreTrainedTokenizer`实例，用于将文本转换为模型所需的整数序列。\n3. `data_args`: 包含数据处理参数的`DataArguments`实例，如模板类型、是否打包、截断长度等。\n\n函数的主要步骤如下：\n\n1. 根据数据参数确定end-of-text标记（默认使用`<|end_of_text|>`，除非数据模板为\"llama3\"，则使用tokenizer的默认end-of-sequence标记）。\n2. 将prompt字段中的文本内容与end-of-text标记拼接。\n3. 如果不进行数据打包（`packing`），则对文本进行tokenizer处理，添加特殊标记（如`<|start_of_sequence|>`），并根据最大长度和截断策略进行处理。\n4. 如果进行数据打包，首先对所有文本进行tokenizer处理，然后将所有令牌化后的文本按块（block）连接起来。计算总长度，确保它是block大小的整数倍。然后，将连接后的文本分割成多个块，并在每个块的开头添加`<|start_of_sequence|>`标记（仅在数据模板为\"gemma\"时）。\n5. 返回处理后的数据字典，包含`input_ids`（整数序列）等键。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 418,
+        "total_tokens": 813,
+        "completion_tokens": 395
+    }
+}

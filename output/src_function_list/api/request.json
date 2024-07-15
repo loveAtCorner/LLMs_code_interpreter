@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "返回下面这个脚本当中所有函数或者类的名称，及其对应的功能\n返回内容的格式需要遵循markdown表格的形式\n\n```python\nimport os\n\nimport uvicorn\n\nfrom llamafactory.api.app import create_app\nfrom llamafactory.chat import ChatModel\n\n\ndef main():\n    chat_model = ChatModel()\n    app = create_app(chat_model)\n    api_host = os.environ.get(\"API_HOST\", \"0.0.0.0\")\n    api_port = int(os.environ.get(\"API_PORT\", \"8000\"))\n    print(\"Visit http://localhost:{}/docs for API document.\".format(api_port))\n    uvicorn.run(app, host=api_host, port=api_port)\n\n\nif __name__ == \"__main__\":\n    main()\n```"
+        }
+    ],
+    "temperature": 0
+}

@@ -1,0 +1,14 @@
+{
+    "model": "qwen1.5-32b-chat-int4",
+    "messages": [
+        {
+            "role": "system",
+            "content": "你是python源码结构和逻辑的解析专家，非常擅长剖析核心代码的功能"
+        },
+        {
+            "role": "user",
+            "content": "返回下面这个脚本当中所有函数或者类的名称，及其对应的功能\n返回内容的格式需要遵循markdown表格的形式\n\n```python\nfrom abc import ABC, abstractmethod\nfrom dataclasses import dataclass\nfrom typing import TYPE_CHECKING, Any, AsyncGenerator, Dict, List, Literal, Optional, Sequence, Union\n\n\nif TYPE_CHECKING:\n    from numpy.typing import NDArray\n    from transformers import PreTrainedModel, PreTrainedTokenizer\n    from vllm import AsyncLLMEngine\n\n    from ..data import Template\n    from ..hparams import DataArguments, FinetuningArguments, GeneratingArguments, ModelArguments\n\n\n@dataclass\nclass Response:\n    response_text: str\n    response_length: int\n    prompt_length: int\n    finish_reason: Literal[\"stop\", \"length\"]\n\n\nclass BaseEngine(ABC):\n    model: Union[\"PreTrainedModel\", \"AsyncLLMEngine\"]\n    tokenizer: \"PreTrainedTokenizer\"\n    can_generate: bool\n    template: \"Template\"\n    generating_args: Dict[str, Any]\n\n    @abstractmethod\n    def __init__(\n        self,\n        model_args: \"ModelArguments\",\n        data_args: \"DataArguments\",\n        finetuning_args: \"FinetuningArguments\",\n        generating_args: \"GeneratingArguments\",\n    ) -> None: ...\n\n    @abstractmethod\n    async def chat(\n        self,\n        messages: Sequence[Dict[str, str]],\n        system: Optional[str] = None,\n        tools: Optional[str] = None,\n        image: Optional[\"NDArray\"] = None,\n        **input_kwargs,\n    ) -> List[\"Response\"]: ...\n\n    @abstractmethod\n    async def stream_chat(\n        self,\n        messages: Sequence[Dict[str, str]],\n        system: Optional[str] = None,\n        tools: Optional[str] = None,\n        image: Optional[\"NDArray\"] = None,\n        **input_kwargs,\n    ) -> AsyncGenerator[str, None]: ...\n\n    @abstractmethod\n    async def get_scores(\n        self,\n        batch_input: List[str],\n        **input_kwargs,\n    ) -> List[float]: ...\n```"
+        }
+    ],
+    "temperature": 0
+}

@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-5ee2cbef009545c3bfbf87dfd059af9c",
+    "object": "chat.completion",
+    "created": 1720772859,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类名| 功能|\n|---|---|\n|`_noisy_mean_initialization`| 使用平均值和随机噪声初始化新添加的嵌入权重。|\n|`resize_embedding_layer`| 根据Tokenizer的大小调整模型的嵌入层，并在DeepSpeed Zero3环境下进行适配。|"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 545,
+        "total_tokens": 616,
+        "completion_tokens": 71
+    }
+}

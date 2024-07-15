@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-12693a46e8d34361b22a1b2167c07cc2",
+    "object": "chat.completion",
+    "created": 1720772929,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类名| 功能|\n|---|---|\n|LOCALES| 包含不同语言（en, ru, zh）的本地化字符串字典，用于界面的多语言支持|\n|ALERTS| 包含不同错误和警告消息的字典，用于显示用户界面中的提示和错误信息|\n\n这个脚本定义了两个字典，LOCALES 用于存储不同语言的文本标签和描述，而 ALERTS 用于存储不同类型的错误和警告消息，这些消息在用户界面中显示给用户。这些字符串可以用于构建多语言的用户界面，或者在执行某些操作时向用户显示错误或警告信息。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 11855,
+        "total_tokens": 11999,
+        "completion_tokens": 144
+    }
+}

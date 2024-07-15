@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-8151307dad0d4af59577c522e6c5b3c5",
+    "object": "chat.completion",
+    "created": 1720772867,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类名| 功能|\n|---|---|\n|QuantizationMethod| 定义枚举类，表示不同的量化方法|\n|_get_quantization_dataset| 生成用于量化模型的样本数据集|\n|configure_quantization| 配置模型量化，根据参数选择不同的量化方法和配置|\n|BitsAndBytesConfig| BitsAndBytes量化配置类|\n|EetqConfig| EETQ量化配置类|\n|GPTQConfig| GPTQ量化配置类|\n|HqqConfig| HQQ量化配置类|"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 1963,
+        "total_tokens": 2082,
+        "completion_tokens": 119
+    }
+}

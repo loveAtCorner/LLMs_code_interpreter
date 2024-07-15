@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-24a67677202e4e7885e1e1e4d12ecb48",
+    "object": "chat.completion",
+    "created": 1720772839,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类| 功能|\n|---|---|\n|`EvaluationArguments`| 一个数据类，用于存储和处理与评估任务相关的参数，如任务名称、数据集路径、批处理大小、随机种子、语言、示例数量、保存目录和下载模式。`__post_init__`方法用于检查保存目录是否存在，如果存在则抛出错误。|"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 373,
+        "total_tokens": 456,
+        "completion_tokens": 83
+    }
+}

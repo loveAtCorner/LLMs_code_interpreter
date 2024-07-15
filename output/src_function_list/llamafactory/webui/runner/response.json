@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-03ef2434a73f4d08af2eba858ef69840",
+    "object": "chat.completion",
+    "created": 1720772937,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "|函数/类名| 功能|\n|---|---|\n|Runner| 主要用于训练和评估模型的类，包含初始化、训练/评估流程控制、日志监控等功能。|\n|| `__init__`| 初始化方法，接收Manager实例和是否为演示模式。|\n|| `set_abort`| 设置是否中断训练或评估。|\n|| `_initialize`| 检查和验证训练或评估所需的参数。|\n|| `_finalize`| 结束训练或评估时清理资源并返回信息。|\n|| `_parse_train_args`| 解析训练参数并构建命令行参数字典。|\n|| `_parse_eval_args`| 解析评估参数并构建命令行参数字典。|\n|| `_preview`| 预览训练或评估的命令行参数。|\n|| `_launch`| 启动训练或评估进程。|\n|| `preview_train`| 预览训练过程。|\n|| `preview_eval`| 预览评估过程。|\n|| `run_train`| 运行训练过程。|\n|| `run_eval`| 运行评估过程。|\n|| `monitor`| 监控训练或评估进程。|\n|| `save_args`| 保存训练参数到配置文件。|\n|| `load_args`| 从配置文件加载训练参数。|\n|| `check_output_dir`| 检查输出目录是否存在并加载已有的配置。|"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 4288,
+        "total_tokens": 4592,
+        "completion_tokens": 304
+    }
+}

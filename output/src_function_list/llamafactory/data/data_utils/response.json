@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-16be9a4c9e474b00a007130cb066ec6d",
+    "object": "chat.completion",
+    "created": 1720772798,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "以下是您提供的Python脚本中函数和类的名称及其功能的Markdown表格形式：\n\n| 类/函数名 | 功能 |\n| --- | --- |\n| `Role` | 定义一个枚举类，包含用户、助手、系统、功能和观察等角色 |\n| `merge_dataset` | 合并多个数据集，根据数据参数（data_args）中的混合策略进行操作，如直接连接或交错数据集 |\n| `split_dataset` | 将数据集分割为训练集和验证集，根据训练参数（training_args）和数据参数（data_args）进行操作 |\n\n请注意，该脚本中没有定义类，只有两个函数和一个枚举类。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 644,
+        "total_tokens": 792,
+        "completion_tokens": 148
+    }
+}

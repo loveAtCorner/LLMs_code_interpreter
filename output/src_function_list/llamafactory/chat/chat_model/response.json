@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-030bf98c388b437bb8147aa9d4b5048b",
+    "object": "chat.completion",
+    "created": 1720772785,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "以下是您提供的Python脚本中函数和类的名称及其功能的Markdown表格形式：\n\n| 类/函数 | 功能 |\n| --- | --- |\n| `ChatModel` | 一个用于聊天交互的模型类，支持Huggingface和VLLM两种后端。 |\n| `__init__` | 初始化方法，根据给定参数创建模型实例并启动后台事件循环。 |\n| `_start_background_loop` | 后台循环启动方法，设置事件循环并使其运行。 |\n| `chat` | 同步方法，用于进行多轮聊天交互，返回响应列表。 |\n| `achat` | 异步方法，用于进行多轮聊天交互，返回响应列表。 |\n| `stream_chat` | 同步方法，用于进行多轮聊天交互，返回生成器，逐轮输出响应。 |\n| `astream_chat` | 异步方法，用于进行多轮聊天交互，返回异步生成器，逐轮输出响应。 |\n| `get_scores` | 同步方法，用于获取输入序列的分数列表。 |\n| `aget_scores` | 异步方法，用于获取输入序列的分数列表。 |\n| `run_chat` | 主程序入口，用于在命令行界面与`ChatModel`进行交互。 |\n\n这个脚本定义了一个名为`ChatModel`的类，用于处理基于Huggingface和VLLm的聊天模型。`run_chat`函数是主程序入口，它创建`ChatModel`实例并处理用户输入，通过`ChatModel`的异步方法进行聊天交互。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 1093,
+        "total_tokens": 1430,
+        "completion_tokens": 337
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-a88e7822e3204e16a05ccc078bbc494a",
+    "object": "chat.completion",
+    "created": 1720772780,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "| 函数/类名 | 功能 |\n| --- | --- |\n| `run_exp` | 运行实验，可能是训练模型或者进行参数调优 |\n| `main` | 程序主入口，调用 `run_exp` 函数 |\n| `_mp_fn` | 并行进程函数，用于多进程执行，内部也调用 `run_exp` 函数 |"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 101,
+        "total_tokens": 186,
+        "completion_tokens": 85
+    }
+}

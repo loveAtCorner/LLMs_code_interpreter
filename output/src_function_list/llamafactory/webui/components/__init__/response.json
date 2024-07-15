@@ -1,0 +1,23 @@
+{
+    "id": "cmpl-302342df50f44615a7737a72acd3d2d5",
+    "object": "chat.completion",
+    "created": 1720772952,
+    "model": "qwen1.5-32b-chat-int4",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "| 函数/类名称 | 功能 |\n| --- | --- |\n| `create_chat_box` | 创建聊天窗口的函数 |\n| `create_eval_tab` | 创建评估标签页的函数 |\n| `create_export_tab` | 创建导出标签页的函数 |\n| `create_infer_tab` | 创建推理标签页的函数 |\n| `create_top` | 创建顶部元素的函数 |\n| `create_train_tab` | 创建训练标签页的函数 |\n\n这个Python脚本中没有定义类，只有六个函数，它们都以`create_`开头，暗示它们的功能是创建不同的用户界面元素或功能模块。这些函数可能被用于构建一个交互式的应用程序，比如一个聊天机器人应用，其中包含聊天、评估、导出、推理和训练等功能。`__all__`列表用于指定该模块对外暴露的公共接口，这样其他模块可以方便地导入这些函数。"
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 152,
+        "total_tokens": 343,
+        "completion_tokens": 191
+    }
+}
