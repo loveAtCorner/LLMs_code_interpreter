@@ -1,7 +1,0 @@
-这个脚本的核心功能是加载和准备一个包含价值头（value head）的模型。价值头通常用于估计文本的潜在价值，如在对话系统中评估回复的相关性。脚本中的主要功能包括：
-
-1. `load_valuehead_params(path_or_repo_id: str, model_args: "ModelArguments")`: 该函数用于从给定的路径或Hugging Face Hub的仓库ID加载价值头的参数。它首先尝试从一个安全的文件（V_HEAD_SAFE_WEIGHTS_NAME）加载，如果失败，则尝试从普通文件（V_HEAD_WEIGHTS_NAME）加载。如果加载失败，它会输出一条警告信息并返回`None`。
-
-2. `prepare_valuehead_model(model: "PreTrainedModel")`: 该函数用于准备一个预训练模型以使用价值头。它根据模型的类型（如"llava"、"chatglm"或"internlm2"）来设置模型的`lm_head`属性，这个属性通常用于生成文本的输出。同时，它还会设置 `_keys_to_ignore_on_save` 属性，这样在保存模型时可以忽略`lm_head.weight`，这可能是为了防止价值头的权重被意外覆盖。
-
-这个脚本的功能与大语言模型的指令精调任务有一定的关联，因为它涉及到加载和准备特定于模型的头部（价值头），这通常在微调或扩展预训练模型以执行特定任务时会用到。然而，它并不直接执行精调任务，而是为精调或使用包含价值头的模型提供必要的设置。在精调任务中，你可能需要使用这个脚本来加载预训练的价值头模型，然后在新的数据集上进行微调。

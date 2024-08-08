@@ -1,8 +1,0 @@
-这个脚本的核心功能是配置序列打包（Sequence Packing）和块对角注意力（Block Diagonal Attention）对于特定的Transformer模型。它主要做了以下几件事：
-
-1. 提供了一个函数`get_seqlens_in_batch`，用于从注意力掩码（attention mask）中计算每个样本的序列长度。
-2. 提供了一个函数`get_unpad_data`，它使用`get_seqlens_in_batch`计算出的序列长度，从填充的输入数据中提取出未填充的数据索引和累积序列长度。
-3. `patch_for_block_diag_attn`函数根据给定的模型类型（model_type），将`get_unpad_data`函数替换为相应模型的私有方法`_get_unpad_data`，这通常是用于处理序列打包时的注意力计算。
-4. `configure_packing`函数根据模型配置（config）、模型参数（model_args）和模型是否可训练（is_trainable）来决定是否启用块对角注意力。如果模型支持且配置中启用了块对角注意力，它会调用`patch_for_block_diag_attn`来应用修改，同时输出一条日志信息。否则，如果模型不支持或者注意力模式不正确，它会抛出一个错误。
-
-这个脚本与大语言模型的指令精调任务（Instruction Tuning）可能有关联，因为序列打包和块对角注意力通常用于处理长序列，这在处理长文本指令时可能会很有用。通过优化注意力计算，模型可以更有效地处理大规模的输入，从而可能提高精调任务的效率和性能。然而，这个脚本本身并不直接执行精调任务，它只是为支持特定注意力机制提供了一个配置和修改的框架。

@@ -1,7 +1,0 @@
-这个脚本的核心功能是实现LLAMA（Longformer with Linear Complexity）模型中自定义注意力机制的前向传播计算。LLAMA模型通过引入局部注意力和稀疏注意力来降低长序列处理的计算复杂性。脚本中定义了三种注意力机制的前向传播函数：`llama_attention_forward`，`llama_flash_attention_2_forward`和`llama_sdpa_attention_forward`，分别对应基础的多头注意力、FlashAttention2和SDPA（Sparse Distributed Parallel Attention）。
-
-这些函数接收输入的隐藏状态、注意力掩码、位置编码、过去的关键值对缓存、是否输出注意力权重等参数。它们首先通过线性投影将隐藏状态转换为查询、键和值，然后应用旋转位置编码（rotary embedding），接着进行注意力计算，可能包括分组和位移操作，最后通过一个线性层（o_proj）将注意力输出转换回原始隐藏状态的维度。
-
-此外，脚本还包括一个`_apply_llama_patch`函数，它会根据transformers库的版本，将LLAMA模型的注意力函数替换为自定义的实现。`configure_longlora`函数用于配置模型参数，根据训练模式和用户提供的模型参数，决定是否启用短注意力位移（shift short attention）并设置相应的组大小比例。
-
-这个脚本的功能与大语言模型的指令精调任务相关，因为它提供了LLAMA模型中自定义注意力机制的实现，这些注意力机制在处理长文本时能有效减少计算成本，对于优化长文本的精调任务具有重要意义。

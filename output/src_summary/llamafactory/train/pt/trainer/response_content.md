@@ -1,8 +1,0 @@
-这个脚本的核心功能是定义了一个名为`CustomTrainer`的自定义训练器类，它是基于Hugging Face的`transformers`库中的`Trainer`类进行扩展的。这个自定义训练器主要用于 finetuning（微调）模型，特别是与Pissa（Parameter Server for AI at Scale）相关的任务和优化器。
-
-具体功能包括：
-1. 初始化方法：接受`finetuning_args`（微调参数）和`processor`（处理器对象，如编码器和解码器），并根据这些参数设置回调函数。如果`finetuning_args.pissa_convert`为True，会添加一个将模型转换为Pissa兼容格式的回调。如果`finetuning_args.use_badam`为True，会使用BAdam优化器并添加相应的回调。
-2. 自定义优化器创建：在创建优化器时，如果未指定优化器，它会根据给定的模型、训练参数和微调参数创建一个自定义优化器（可能是BAdam或其他优化器）。
-3. 自定义学习率调度器：在创建学习率调度器时，根据训练参数和训练步数创建一个自定义的学习率调度器。
-
-这个脚本的功能与大语言模型的指令精调任务紧密相关，因为它提供了对模型微调过程的自定义控制，包括优化器、学习率调度器的选择，以及与Pissa兼容的转换，这在大规模分布式训练中是非常有用的。

@@ -1,0 +1,14 @@
+directory: "./src"
+# output_dir: "./output/src_summary"
+output_dir: "./output/src_function_list"
+url: "http://20.20.136.251:8001/v1/chat/completions"
+headers:
+  User-Agent: "Apifox/1.0.0 (https://apifox.com)"
+  Content-Type: "application/json"
+concurrency: 5
+system_prompt_file: "./prompt/system_prompt.txt"
+# user_prompt_file: "./prompt/user_prompt1.txt"
+user_prompt_file: "./prompt/user_prompt2.txt"
+model: "qwen1.5-32b-chat-int4"
+input_max_length: 4096
+file_extension: ".py"
